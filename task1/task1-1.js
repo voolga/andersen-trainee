@@ -1,5 +1,5 @@
 const 
-      firstNumberPrompt = prompt("Pls enter a number", ""),
+      codefirstNumberPrompt = prompt("Pls enter a number", ""),
       secondNumberPrompt = prompt(
     "Pls enter another number from 2 to 36 (that will be the number system)",
     ""
