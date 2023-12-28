@@ -1,25 +1,9 @@
 function selectFromInterval(arr, start, end) {
-  function isRangeValid(start, end) {
-    if (typeof start !== "number" || typeof end !== "number") {
-      throw new Error("это не кот и он не умеет говорить мяу, дурень");
-    };
-  };
-
-  function isArrValid(array) {
-    if (!Array.isArray(array)) {
-      throw new Error("это не кот и он не умеет говорить мяу, дурень");
-    };
-    array.some((el) => {
-      if (typeof el !== "number") {
-        throw new Error("это не кот и он не умеет говорить мяу, дурень");
-      };
-    });
-  };
-
   isArrValid(arr);
   isRangeValid(start, end);
 
   let min, max;
+  
   if (start < end) {
     min = start;
     max = end;
@@ -34,6 +18,23 @@ function selectFromInterval(arr, start, end) {
   });
 
   return result;
-}
+};
 
-console.log(selectFromInterval(['aaa'], 2, 3));
+function isRangeValid(start, end) {
+  if (typeof start !== "number" || typeof end !== "number") {
+    throw new Error("это не кот и он не умеет говорить мяу, дурень");
+  };
+};
+
+function isArrValid(array) {
+  if (!Array.isArray(array)) {
+    throw new Error("это не кот и он не умеет говорить мяу, дурень");
+  };
+
+  array.some((el) => {
+    if (typeof el !== "number") {
+      throw new Error("это не кот и он не умеет говорить мяу, дурень");
+    };
+  });
+};
+
