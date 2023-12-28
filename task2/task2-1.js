@@ -1,5 +1,5 @@
 function makeObjectDeepCopy(obj) {
-  if (obj === null || typeof obj !== "object" || typeof obj === "function") {
+  if (!isValidObjectForCopy(obj)) {
     return obj;
   }
 
@@ -20,22 +20,8 @@ function makeObjectDeepCopy(obj) {
   }
 
   return copyObj;
-}
+};
 
-// test
-
-// const obj = [{
-//   a: 1,
-//   b: 2,
-//   c: {
-//     d: 1,
-//     e: {
-//       f: 3,
-//       v: [{m: 6}, {l: 33}]
-//     },
-//   },
-// }];
-// let newObj = makeObjectDeepCopy(obj);
-
-
-
+function isValidObjectForCopy(obj) {
+  return obj !== null && typeof obj === "object" && typeof obj !== "function";
+};

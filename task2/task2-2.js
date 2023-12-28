@@ -1,40 +1,31 @@
 function selectFromInterval(arr, start, end) {
-  isArrValid(arr);
-  isRangeValid(start, end);
+  if (!isArrValid(arr)) {
+    throw new Error(
+      "First argument must be array which contains only numbers inside"
+    );
+  } else if (!isRangeValid(start, end)) {
+    throw new Error("2nd and 3rd arguments must be numbers");
+  }
 
-  let min, max;
-  
-  if (start < end) {
-    min = start;
-    max = end;
-  } else {
-    min = end;
-    max = start;
-  };
-  let result = [];
+  if (start > end) {
+    [start, end] = [end, start];
+  }
 
-  arr.filter((item) => {
-    return item >= min && item <= max;
+  return arr.filter((item) => {
+    return item >= start && item <= end;
   });
-
-  return result;
 };
 
 function isRangeValid(start, end) {
-  if (typeof start !== "number" || typeof end !== "number") {
-    throw new Error("это не кот и он не умеет говорить мяу, дурень");
-  };
+  return typeof start === "number" || typeof end === "number";
 };
 
 function isArrValid(array) {
-  if (!Array.isArray(array)) {
-    throw new Error("это не кот и он не умеет говорить мяу, дурень");
-  };
-
-  array.some((el) => {
-    if (typeof el !== "number") {
-      throw new Error("это не кот и он не умеет говорить мяу, дурень");
-    };
-  });
+  return (
+    Array.isArray(array) &&
+    array.every((el) => {
+      return typeof el === "number";
+    })
+  );
 };
 
