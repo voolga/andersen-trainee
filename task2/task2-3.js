@@ -18,9 +18,9 @@ const myIterable = {
       next() {
         if (current <= last) {
           return { done: false, value: current++ };
-        } else {
-          return { done: true }
         }
+        
+        return { done: true };
       },
     };
   },
