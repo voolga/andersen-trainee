@@ -1,8 +1,19 @@
 function createDebounceFunction(func, delay) {
-  let timeoutID = 0;
+  if (typeof func !== 'function') {
+    throw new TypeError(`Func must be a function. Got: ${typeof func}`);
+  }
+
+  if (typeof delay !== 'number' || delay < 0) {
+    throw new TypeError('Delay must be a positive number');
+  }
+
+  let timeoutId = 0;
 
   return function () {
-    clearTimeout(timeoutID);
-    timeoutID = setTimeout(func, delay);
+    if (timeoutId) {
+      clearTimeout(timeoutId);
+    }
+
+    timeoutId = setTimeout(func, delay);
   };
 };
