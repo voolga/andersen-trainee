@@ -4,12 +4,16 @@ class Calculator {
       throw new TypeError('Arguments are invalid');
     }
 
+    if(arguments.length !==2) {
+      throw new Error('You should input 2 numbers as arguments');
+    }
+
     this.num1 = num1;
     this.num2 = num2;
 
     this.setX = this.setX.bind(this);
     this.setY = this.setY.bind(this);
-    this.logSumm = this.logSumm.bind(this);
+    this.logSum = this.logSum.bind(this);
     this.logMult = this.logMult.bind(this);
     this.logSub = this.logSub.bind(this);
     this.logDivid = this.logDivid.bind(this);
@@ -18,18 +22,20 @@ class Calculator {
   setX(value) {
     if (!this.#isValidNumber(value)) {
       throw new TypeError(`Invalid X value. Got ${typeof value}`);
-  }
+    }
+
     this.num1 = value;
   };
 
   setY(value) {
     if (!this.#isValidNumber(value)) {
       throw new TypeError(`Invalid Y value. Got ${typeof value}`);
-  }
+    }
+
     this.num2 = value;
   };
 
-  logSumm() {
+  logSum() {
     console.log(this.num1 + this.num2);
   };
 
@@ -52,4 +58,4 @@ class Calculator {
   #isValidNumber(value) {
     return typeof value === 'number' && isFinite(value);
   };
-}
+};
