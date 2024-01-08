@@ -53,7 +53,7 @@ class Stack {
     while (currentNode) {
       arrFromStack.push(currentNode.data);
       currentNode = currentNode.prev;
-    };
+    }
 
     return arrFromStack.reverse();
   };
