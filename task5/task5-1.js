@@ -14,7 +14,7 @@ class Stack {
 
   push(data) {
     if (this.length === this.maxLength) {
-      throw new Error("stack is full");
+      throw new Error('stack is full');
     }
 
     this.last = new Node(data, this.last);
@@ -23,7 +23,7 @@ class Stack {
 
   pop() {
     if (this.last === null) {
-      throw new Error("stack is empty");
+      throw new Error('stack is empty');
     }
 
     const result = this.last.data;
@@ -56,7 +56,7 @@ class Stack {
 
   static fromIterable(iterable) {
     if (!(iterable?.[Symbol.iterator] instanceof Function)) {
-      throw new TypeError("passed data type is NOT iterable");
+      throw new TypeError('passed data type is NOT iterable');
     }
 
     const stack = new Stack(iterable.length);
