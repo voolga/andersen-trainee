@@ -37,9 +37,9 @@ class Stack {
   peek() {
     if (this.last) {
       return this.last.data;
-    } else {
-      return null;
     }
+
+    return null;
   };
 
   isEmpty() {
