@@ -126,14 +126,10 @@ function memorySubtract() {
   calculator.memory -= parseFloat(calculator.displayValue);
 }
 
-document
-  .querySelector('.memory-recall')
-  .addEventListener('click', memoryRecall);
+document.querySelector('.memory-recall').addEventListener('click', memoryRecall);
 document.querySelector('.memory-clear').addEventListener('click', memoryClear);
 document.querySelector('.memory-add').addEventListener('click', memoryAdd);
-document
-  .querySelector('.memory-subtract')
-  .addEventListener('click', memorySubtract);
+document.querySelector('.memory-subtract').addEventListener('click', memorySubtract);
 
 document.addEventListener('keydown', (e) => {
   if (e.key >= '0' && e.key <= '9') {
