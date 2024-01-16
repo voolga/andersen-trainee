@@ -136,11 +136,26 @@ document
   .addEventListener('click', memorySubtract);
 
 document.addEventListener('keydown', (e) => {
-  if (e.key >= '0' && e.key <= '9') inputDigit(e.key);
-  if (e.key === '.' || e.key === ',') inputDecimal('.');
-  if (e.key === '=' || e.key === 'Enter') handleOperator('=');
-  if (e.key === 'Escape') clearCalculator();
-  if (['/', '*', '-', '+'].includes(e.key)) handleOperator(e.key);
+  if (e.key >= '0' && e.key <= '9') {
+    inputDigit(e.key);
+  }
+  if (e.key === '.' || e.key === ',') {
+    inputDecimal('.');
+  }
+
+  if (e.key === '=' || e.key === 'Enter') 
+  {
+    handleOperator('=');
+  }
+  if (e.key === 'Escape') {
+    clearCalculator();
+  }
+  if (['/', '*', '-', '+'].includes(e.key)) {
+    handleOperator(e.key);
+  }
 
   updateDisplay();
 });
+
+
+
