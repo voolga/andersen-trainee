@@ -9,20 +9,8 @@ class Car {
   #isStarted = false;
   #mileage = 0;
 
-  constructor(
-    brand,
-    model,
-    yearOfManufacturing,
-    maxSpeed,
-    maxFuelVolume,
-    fuelConsumption
-  ) {
-    this.brand = brand;
-    this.model = model;
-    this.yearOfManufacturing = yearOfManufacturing;
-    this.maxSpeed = maxSpeed;
-    this.maxFuelVolume = maxFuelVolume;
-    this.fuelConsumption = fuelConsumption;
+  constructor(config) {
+    Object.assign(this, config);
   }
 
   #isStringPropertyValid(value) {
