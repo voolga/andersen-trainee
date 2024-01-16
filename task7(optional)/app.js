@@ -110,7 +110,6 @@ keys.addEventListener('click', (event) => {
 
 function memoryRecall() {
   calculator.displayValue = calculator.memory;
-  calculator.waitingForSecondOperand = true;
   updateDisplay();
 }
 
@@ -135,7 +134,7 @@ document.addEventListener('keydown', (e) => {
   if (e.key >= '0' && e.key <= '9') {
     inputDigit(e.key);
   }
-  
+
   if (e.key === '.' || e.key === ',') {
     inputDecimal('.');
   }
