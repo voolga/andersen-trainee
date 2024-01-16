@@ -13,8 +13,12 @@ class Car {
     Object.assign(this, config);
   }
 
+  isInRange(value, min, max) {
+    return value >= min && value <= max;
+  }
+
   #isStringPropertyValid(value) {
-    return typeof value === 'string' && value.length >= 1 && value.length <= 50;
+    return typeof value === 'string' && this.isInRange(value.length, 1, 50);
   }
 
   #throwStringPropertyError(propName) {
@@ -50,7 +54,7 @@ class Car {
   }
 
   set yearOfManufacturing(value) {
-    if (!(value >= 1900 && value <= 2024)) {
+    if (!this.isInRange(value, 1900, 2024)) {
       this.#throwStringPropertyError('yearOfManufacturing');
     }
 
@@ -62,7 +66,7 @@ class Car {
   }
 
   set maxSpeed(value) {
-    if (!(value >= 100 && value <= 300)) {
+    if (!this.isInRange(value, 100, 300)) {
       this.#throwStringPropertyError('maxSpeed');
     }
 
@@ -74,7 +78,7 @@ class Car {
   }
 
   set maxFuelVolume(value) {
-    if (!(value >= 5 && value <= 20)) {
+    if (!this.isInRange(value, 5, 20)) {
       this.#throwStringPropertyError('maxFuelVolume ');
     }
 
